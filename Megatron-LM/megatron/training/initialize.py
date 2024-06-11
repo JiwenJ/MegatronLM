@@ -161,10 +161,10 @@ def _compile_dependencies():
     if torch.distributed.get_rank() == 0:
         start_time = time.time()
         print("> compiling and loading fused kernels ...", flush=True)
-        fused_kernels.load(args)
+        #fused_kernels.load(args)
         torch.distributed.barrier()
     else:
-        torch.distributed.barrier()
+        #torch.distributed.barrier()
         fused_kernels.load(args)
     # Simple barrier to make sure all ranks have passed the
     # compilation phase successfully before moving on to the
