@@ -164,8 +164,8 @@ def _compile_dependencies():
         #fused_kernels.load(args)
         torch.distributed.barrier()
     else:
-        #torch.distributed.barrier()
-        fused_kernels.load(args)
+        torch.distributed.barrier()
+        #fused_kernels.load(args)
     # Simple barrier to make sure all ranks have passed the
     # compilation phase successfully before moving on to the
     # rest of the program. We think this might ensure that
